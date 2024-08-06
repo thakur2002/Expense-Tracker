@@ -1,0 +1,181 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+/* :root{
+  --color-yollow : #f9c74f;
+  --color-purple: #9d4edd;
+} */
+/* * > *{
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+} */
+
+/* .app{
+  margin-left: 10px;
+}
+.App {
+  text-align: center;
+  padding: 4em 0;
+}
+
+
+.header-text{
+  background-color: #004D40;
+  color: #E0F2F1;
+} */
+
+/* .ReactModal__Overlay {
+  background-color: rgba(0, 0, 0, 0.75);
+}
+
+.ReactModal__Content {
+  top: 50%;
+  left: 50%;
+  right: auto;
+  bottom: auto;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  border-radius: 10px;
+} */
+
+/* .totaldiv{
+  display: flex;
+  justify-content: space-around;
+  width: fit-content;
+  margin: auto;
+  gap: 20px;
+} */
+
+/* src/components/Modal.css */
+/* .modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal.isopen {
+  display: flex;
+}
+
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.close-button {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.modal-body {
+  margin-top: 10px;
+} */
+
+
+.app {
+  font-family: 'Inter', sans-serif;
+}
+
+.totaldiv h4 {
+  margin-bottom: 1rem;
+}
+
+.filtering select {
+  display: block;
+  margin-top: 0.5rem;
+  padding: 0.5rem;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+  white-space: nowrap; /* Ensure table data does not wrap */
+}
+
+tbody {
+  display: block;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+thead, tbody tr {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+}
+
+
+.modal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content {
+  width: 100%;
+  max-width: 600px;
+  padding: 1.5rem;
+  border-radius: 0.375rem;
+  background-color: white;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.close-button {
+  font-size: 1.5rem;
+  font-weight: 700;
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+tbody tr:hover {background-color: #D6EEEE;}
+@media (max-width: 640px) {
+  .totaldiv h4 {
+    font-size: 0.875rem; /* Reduce font size on small screens */
+  }
+  .table-responsive td,
+  .table-responsive th {
+    font-size: 0.75rem; /* Adjust font size for smaller screens */
+    padding: 0.5rem;    /* Adjust padding for smaller screens */
+  }
+}
