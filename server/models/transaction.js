@@ -4,14 +4,13 @@ const TransactionSchema = new mongoose.Schema({
   date: {
     type: Date,
     default: Date.now,
-    required:true
   },
   description: {
     type: String,
   },
   category: {
     type: String,
-    required: [true, 'Please add some text']
+    required: true
   },
   amount:{
     type:Number,
@@ -21,7 +20,8 @@ const TransactionSchema = new mongoose.Schema({
      type:String,
      enum:["Income","Expense"],
      required:true
-  }
+  },
+  user: { type: String }
 });
 
 module.exports = mongoose.model('Transaction', TransactionSchema);

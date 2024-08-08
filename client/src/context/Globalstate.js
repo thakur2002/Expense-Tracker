@@ -1,6 +1,6 @@
 import React, { createContext, useReducer } from 'react';
 import AppReducer from './Appreducer.js';
-import axios from 'axios';
+import axios from 'axios'
 
 // Initial state
 const initialState = {
@@ -13,17 +13,21 @@ const initialState = {
 export const GlobalContext = createContext(initialState);
 
 // Provider component
-export const GlobalProvider = ({ children }) => {
+export const GlobalProvider = ({ children,token}) => {
   const [state, dispatch] = useReducer(AppReducer, initialState);
 
   // Actions
   async function getTransactions() {
+    const config = {
+      headers: {
+        'Authorization': `Bearer ${token}` 
+      }
+    }
     try {
-      const res = await axios.get('/api/transactions');
-
+      const response = await axios.get('http://localhost:5000/api/transactions',config);
       dispatch({
         type: 'GET_TRANSACTIONS',
-        payload: res.data.data
+        payload: response.data.data
       });
     } catch (err) {
       dispatch({
@@ -34,9 +38,13 @@ export const GlobalProvider = ({ children }) => {
   }
 
   async function deleteTransaction(id) {
+    const config = {
+      headers: {
+        'Authorization': `Bearer ${token}` 
+      }
+    }
     try {
-      await axios.delete(`/api/transactions/${id}`);
-
+      await axios.delete(`http://localhost:5000/api/transactions/${id}`,config);
       dispatch({
         type: 'DELETE_TRANSACTION',
         payload: id
@@ -50,19 +58,22 @@ export const GlobalProvider = ({ children }) => {
   }
 
   async function addTransaction(transaction) {
+   
     const config = {
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}` 
       }
     }
 
     try {
-      const res = await axios.post('/api/transactions', transaction, config);
-
-      dispatch({
-        type: 'ADD_TRANSACTION',
-        payload: res.data.data
-      });
+      const response = await axios.post('http://localhost:5000/api/transactions', transaction, config); 
+      
+        dispatch({
+          type: 'ADD_TRANSACTION',
+          payload: response.data.data
+        });
+      
     } catch (err) {
       dispatch({
         type: 'TRANSACTION_ERROR',

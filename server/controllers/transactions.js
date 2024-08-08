@@ -6,7 +6,8 @@ const Transaction = require('../models/transaction');
 // @access  Public
 exports.getTransactions = async (req, res, next) => {
   try {
-    const transactions = await Transaction.find();
+    
+    const transactions = await Transaction.find({ user: req.user.userId });
 
     return res.status(200).json({
       success: true,
@@ -25,9 +26,9 @@ exports.getTransactions = async (req, res, next) => {
 exports.addTransaction = async (req, res, next) => {
   try {
     
-
-    const transaction = await Transaction.create(req.body);
-  
+     const newtransaction={...req.body,user:req.user.userId};
+    const transaction = new Transaction(newtransaction);
+    await transaction.save();
     return res.status(201).json({
       success: true,
       data: transaction
@@ -63,7 +64,6 @@ exports.deleteTransaction = async (req, res, next) => {
       });
     }
 
-    // await transaction.remove();
 
     return res.status(200).json({
       success: true
