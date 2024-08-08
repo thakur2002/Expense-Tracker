@@ -13,7 +13,7 @@ const LoginForm = ({ onAuthSuccess }) => {
     try {
       const response = await axios.post(endpoint, { username, password });
       if (response.status===201 && isLogin) {
-        onAuthSuccess(response.data.token);
+        onAuthSuccess(response.data.token,username);
       } else if(response.status===201 && !isLogin){
         setMessage(response.data.message);
       }
