@@ -24,7 +24,7 @@ export const GlobalProvider = ({ children,token}) => {
       }
     }
     try {
-      const response = await axios.get('http://localhost:5000/api/transactions',config);
+      const response = await axios.get('https://expensetracker-utqy.onrender.com/api/transactions',config);
       dispatch({
         type: 'GET_TRANSACTIONS',
         payload: response.data.data
@@ -44,7 +44,7 @@ export const GlobalProvider = ({ children,token}) => {
       }
     }
     try {
-      await axios.delete(`http://localhost:5000/api/transactions/${id}`,config);
+      await axios.delete(`https://expensetracker-utqy.onrender.com/api/transactions/${id}`,config);
       dispatch({
         type: 'DELETE_TRANSACTION',
         payload: id
@@ -67,7 +67,7 @@ export const GlobalProvider = ({ children,token}) => {
     }
 
     try {
-      const response = await axios.post('http://localhost:5000/api/transactions', transaction, config); 
+      const response = await axios.post('https://expensetracker-utqy.onrender.com/api/transactions', transaction, config); 
       
         dispatch({
           type: 'ADD_TRANSACTION',
