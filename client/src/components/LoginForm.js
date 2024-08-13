@@ -9,7 +9,7 @@ const LoginForm = ({ onAuthSuccess }) => {
   const [message, setMessage] = useState('');
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const endpoint = isLogin ? '/api/authenticate/login' : '/api/authenticate/signup';
+    const endpoint = isLogin ? 'https://expensetracker-utqy.onrender.com/api/authenticate/login' : 'https://expensetracker-utqy.onrender.com/api/authenticate/signup';
     try {
       const response = await axios.post(endpoint, { username, password });
       if (response.status===201 && isLogin) {
