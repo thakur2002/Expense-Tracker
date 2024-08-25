@@ -4,7 +4,7 @@ const Transaction = require('../models/transaction');
 // @desc    Get all transactions
 // @route   GET /api/v1/transactions
 // @access  Public
-exports.getTransactions = async (req, res, next) => {
+exports.getTransactions = async (req, res) => {
   try {
     
     const transactions = await Transaction.find({ user: req.user.userId });
@@ -23,7 +23,7 @@ exports.getTransactions = async (req, res, next) => {
 }
 
 
-exports.addTransaction = async (req, res, next) => {
+exports.addTransaction = async (req, res) => {
   try {
     
      const newtransaction={...req.body,user:req.user.userId};
@@ -53,7 +53,7 @@ exports.addTransaction = async (req, res, next) => {
 // @desc    Delete transaction
 // @route   DELETE /api/v1/transactions/:id
 // @access  Public
-exports.deleteTransaction = async (req, res, next) => {
+exports.deleteTransaction = async (req, res) => {
   try {
      const transaction=await Transaction.findByIdAndDelete(req.params.id);
 
